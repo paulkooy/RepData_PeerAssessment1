@@ -41,10 +41,6 @@ Mean and median total number of steps taken per day:
 summary(stepsperday$Total.steps)
 ```
 
-```{r}
-summary(stepsperday$Total.steps)
-```
-
 ```
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##       0    6778   10400    9354   12810   21190

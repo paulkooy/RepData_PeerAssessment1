@@ -41,6 +41,11 @@ Mean and median total number of steps taken per day:
 summary(stepsperday$Total.steps)
 ```
 
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##       0    6778   10400    9354   12810   21190
+```
+
 ## What is the average daily activity pattern?
 
 ```{r, echo=TRUE}
@@ -65,11 +70,19 @@ maxinterval <- stepsperinterval$interval[stepsperinterval$Average.steps == maxst
 message("Interval ", maxinterval, " contains the highest number of average steps in the day")
 ```
 
+```
+## Interval 835 contains the highest number of average steps in the day
+```
+
 ## Inputing missing values
 
 ```{r, echo=TRUE}
 #    Amount is missing data
 message("The number of observations without steps available is ", sum(is.na(activity$steps)))
+```
+
+```
+## The number of observations without steps available is 2304
 ```
 
 The strategy demonstrated is were NA are replaced by the mean number of steps for that interval.
@@ -98,6 +111,11 @@ Mean and median total number of steps taken per day (NA replaced):
 ```{r, echo=TRUE}
 #    Report the mean and median total number of steps taken per day
 summary(stepsperday$Total.steps)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##      41    9819   10770   10770   12810   21190
 ```
 
 You see in the histogram that intervals without steps have been increased to the mean value, with the effect that the total steps for these days have increased. You see less days with none or minimal steps. Consequently also the Median and Mean have increased.
@@ -140,4 +158,3 @@ dev.copy(png, file="figure/plot4.png")
 dev.off()
 ```
 ![plot4](figure/plot4.png)
-
