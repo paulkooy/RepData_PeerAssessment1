@@ -9,11 +9,11 @@ output: html_document
 
 ```{r, echo=TRUE}
 #    Read data
-if (!exists("data/activity.csv")) {
-     activity <- read.csv("data/activity.csv")
-     #    Convert Year string to Date value
-     activity$date <- as.Date(activity$date)
-}
+unzip ("activity.zip")
+activity <- read.csv("activity.csv")
+#    Convert Year string to Date value
+activity$date <- as.Date(activity$date)
+#    Create figure folder
 if (!file.exists("figure")) {
      dir.create("figure")
 }
@@ -33,6 +33,7 @@ plot(stepsperday$date, stepsperday$Total.steps, type = "h", lwd = 8,
 dev.copy(png, file="figure/plot1.png")
 dev.off()
 ```
+![plot1](./figure/plot1.png)
 
 Mean and median total number of steps taken per day:
 ```{r, echo=TRUE}
@@ -54,6 +55,7 @@ plot(stepsperinterval$interval, stepsperinterval$Average.steps, type = "l",
 dev.copy(png, file="figure/plot2.png")
 dev.off()
 ```
+![plot2](figure/plot2.png)
 
 Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 ```{r, echo=TRUE}
@@ -90,6 +92,7 @@ plot(stepsperday$date, stepsperday$Total.steps, type = "h", lwd = 8,
 dev.copy(png, file="figure/plot3.png")
 dev.off()
 ```
+![plot3](figure/plot3.png)
 
 Mean and median total number of steps taken per day (NA replaced):
 ```{r, echo=TRUE}
@@ -136,3 +139,5 @@ ggplot(meanstepsperinterval, aes(interval, Average.steps)) +
 dev.copy(png, file="figure/plot4.png")
 dev.off()
 ```
+![plot4](figure/plot4.png)
+
